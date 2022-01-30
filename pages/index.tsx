@@ -1,7 +1,9 @@
-import type { NextPage } from 'next';
+import type { ReactElement } from 'react';
 import useChangeTheme from '../hooks/useChangeTheme';
 
-const Home: NextPage = () => {
+import VisitorTemplate from '../components/layouts/VisitorLayout';
+
+const Home = () => {
 	const changeTheme = useChangeTheme();
 
 	return (
@@ -16,3 +18,7 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+Home.getLayout = function getLayout(page: ReactElement) {
+	return <VisitorTemplate>{page}</VisitorTemplate>;
+};
